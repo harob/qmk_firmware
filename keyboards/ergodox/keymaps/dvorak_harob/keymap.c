@@ -6,6 +6,9 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
+// TODO(harry) Switch the central hyper and CAG keys to be regular modifiers using KC_HYPR. That is currently
+// blocked by a bug in QMK: https://github.com/jackhumbert/qmk_firmware/issues/421
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
@@ -15,7 +18,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  Tab   |   '  |   ,  |   .  |   P  |   Y  |  L1  |           |  L1  |   F  |   G  |   C  |   R  |   L  |   /    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Esc/Ctrl| A/Cmd|   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  | S/Cmd|   -    |
- * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
+ * |--------+------+------+------+------+------| Hyper|           |CtAlCm|------+------+------+------+------+--------|
  * |(/LShift|  :   |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  | Z/L2 |)/RShift|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |  =   |  '"  |AltShf| Left | Right|                                       | Down |  Up  |   [  |   ]  | ~L1  |
@@ -42,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                KC_SPC,KC_BSPC,KC_END,
         // right hand
              KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_BSLS,
-             KC_FN1,      KC_F,   KC_G,   KC_C,   KC_R,   KC_L,             KC_SLSH,
+             LT(SYMB,KC_NO),KC_F, KC_G,   KC_C,   KC_R,   KC_L,             KC_SLSH,
                           KC_D,   KC_H,   KC_T,   KC_N,   GUI_T(KC_S),      KC_MINS,
-             MEH_T(KC_NO),KC_B,   KC_M,   KC_W,   KC_V,   LT(MDIA, KC_Z),   KC_RSPC,
+             LCAG_T(KC_NO),KC_B,   KC_M,   KC_W,   KC_V,   LT(MDIA, KC_Z),   KC_RSPC,
                                   KC_DOWN,KC_UP,  KC_LBRC,KC_RBRC,          KC_FN1,
              KC_LALT,        CTL_T(KC_ESC),
              KC_PGUP,
