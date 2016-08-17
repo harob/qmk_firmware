@@ -13,7 +13,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   `    |   1  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   \    |
+ * |   `    |   1  |   2  |   3  |   4  |   5  |      |           |      |   6  |   7  |   8  |   9  |   0  |   \    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |  Tab   |   '  |   ,  |   .  |   P  |   Y  |  L1  |           |  L1  |   F  |   G  |   C  |   R  |   L  |   /    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -21,10 +21,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| Hyper|           |CtAlCm|------+------+------+------+------+--------|
  * |(/LShift|   :  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  | Z/L2 |)/RShift|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |  =   |  '"  |AltShf| LAlt | LCmd |                                       | RCmd | RAlt |   [  |   ]  | ~L1  |
+ *   |  =   |      |AltShf| LAlt | LCmd |                                       | RCmd | RAlt |   [  |   ]  | ~L1  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,---------------.
- *                                        | App  | LCmd |       | Alt  |Ctrl/Esc|
+ *                                        |      |      |       |      |        |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | Home |       | PgUp |        |      |
  *                                 | Space|Backsp|------|       |------|  Tab   |Enter |
@@ -35,23 +35,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_GRV,         KC_1,           KC_2,    KC_3,   KC_4,   KC_5, KC_LEFT,
-        KC_TAB,         KC_QUOT,        KC_COMM, KC_DOT, KC_P,   KC_Y, LT(SYMB,KC_NO),
-        CTL_T(KC_ESC),  KC_A,           KC_O,    KC_E,   KC_U,   KC_I,
-        KC_LSPO,        KC_SCLN,        KC_Q,    KC_J,   KC_K,   KC_X, ALL_T(KC_NO),
-        KC_EQL,         KC_QUOT,      LALT(KC_LSFT),  KC_LALT,KC_LGUI,
-                                              ALT_T(KC_APP),  KC_LGUI,
-                                                              KC_HOME,
-                                               KC_SPC,KC_BSPC,KC_END,
+        KC_GRV,         KC_1,    KC_2,         KC_3,   KC_4,   KC_5,   KC_NO,
+        KC_TAB,         KC_QUOT, KC_COMM,      KC_DOT, KC_P,   KC_Y,   LT(SYMB,KC_NO),
+        CTL_T(KC_ESC),  KC_A,    KC_O,         KC_E,   KC_U,   KC_I,
+        KC_LSPO,        KC_SCLN, KC_Q,         KC_J,   KC_K,   KC_X,   ALL_T(KC_NO),
+        KC_EQL,         KC_NO,   LALT(KC_LSFT),KC_LALT,KC_LGUI,
+                                                               KC_NO,  KC_NO,
+                                                                       KC_HOME,
+                                                       KC_SPC, KC_BSPC,KC_END,
         // right hand
-             KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,           KC_BSLS,
-             LT(SYMB,KC_NO),KC_F, KC_G,   KC_C,   KC_R,   KC_L,           KC_SLSH,
-                          KC_D,   KC_H,   KC_T,   KC_N,   KC_S,           KC_MINS,
-             LCAG_T(KC_NO),KC_B,  KC_M,   KC_W,   KC_V,   LT(MDIA, KC_Z), KC_RSPC,
-                                  KC_LGUI,KC_RALT,KC_LBRC,KC_RBRC,        KC_FN1,
-             KC_LALT,        CTL_T(KC_ESC),
-             KC_PGUP,
-             KC_PGDN,KC_TAB, KC_ENT
+        KC_NO,         KC_6,  KC_7,   KC_8,   KC_9,   KC_0,           KC_BSLS,
+        LT(SYMB,KC_NO),KC_F,  KC_G,   KC_C,   KC_R,   KC_L,           KC_SLSH,
+                       KC_D,  KC_H,   KC_T,   KC_N,   KC_S,           KC_MINS,
+        LCAG_T(KC_NO), KC_B,  KC_M,   KC_W,   KC_V,   LT(MDIA, KC_Z), KC_RSPC,
+                              KC_RGUI,KC_RALT,KC_LBRC,KC_RBRC,        KC_FN1,
+        KC_NO,         KC_NO,
+        KC_PGUP,
+        KC_PGDN,       KC_TAB,KC_ENT
     ),
 /* Keymap 1: Symbol Layer
  *
