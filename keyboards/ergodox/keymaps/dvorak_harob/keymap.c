@@ -21,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| Hyper|           |CtAlCm|------+------+------+------+------+--------|
  * |(/LShift|   :  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  | Z/L2 |)/RShift|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |  =   |      |AltShf| LAlt | LCmd |                                       | RCmd | RAlt |   [  |   ]  | ~L1  |
+ *   |  =   |      | Ctrl | LAlt | LCmd |                                       | RCmd | RAlt |   [  |   ]  | ~L1  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,---------------.
  *                                        | Copy | Paste|       | Vol+ | Vol- |
@@ -35,11 +35,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_GRV,         KC_1,    KC_2,         KC_3,   KC_4,   KC_5,      KC_NO,
-        KC_TAB,         KC_QUOT, KC_COMM,      KC_DOT, KC_P,   KC_Y,      LT(SYMB,KC_NO),
-        CTL_T(KC_ESC),  KC_A,    KC_O,         KC_E,   KC_U,   KC_I,
-        KC_LSPO,        KC_SCLN, KC_Q,         KC_J,   KC_K,   KC_X,      ALL_T(KC_NO),
-        KC_EQL,         KC_NO,   LALT(KC_LSFT),KC_LALT,KC_LGUI,
+        KC_GRV,         KC_1,    KC_2,    KC_3,   KC_4,   KC_5,      KC_NO,
+        KC_TAB,         KC_QUOT, KC_COMM, KC_DOT, KC_P,   KC_Y,      LT(SYMB,KC_NO),
+        CTL_T(KC_ESC),  KC_A,    KC_O,    KC_E,   KC_U,   KC_I,
+        KC_LSPO,        KC_SCLN, KC_Q,    KC_J,   KC_K,   KC_X,      ALL_T(KC_NO),
+        KC_EQL,         KC_NO,   KC_LCTL, KC_LALT,KC_LGUI,
                                                                LGUI(KC_C),LGUI(KC_V),
                                                                           KC_HOME,
                                                        KC_SPC, KC_BSPC,   KC_END,
