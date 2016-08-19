@@ -4,6 +4,6 @@
 #include "../../config.h"
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 180
+#define TAPPING_TERM 160
 
 #endif
