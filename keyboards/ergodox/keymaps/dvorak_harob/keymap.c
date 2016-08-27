@@ -6,6 +6,9 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
+#define KC_TABP LGUI(S(KC_LBRC))
+#define KC_TABN LGUI(S(KC_RBRC))
+
 // TODO(harry) Switch the central hyper and CAG keys to be regular modifiers using KC_HYPR. That is currently
 // blocked by a bug in QMK: https://github.com/jackhumbert/qmk_firmware/issues/421
 
@@ -16,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   `    |   1  |   2  |   3  |   4  |   5  | ~L1  |           |      |   6  |   7  |   8  |   9  |   0  |   \    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |  Tab   |   '  |   ,  |   .  |   P  |   Y  |      |           |      |   F  |   G  |   C  |   R  |   L  |   /    |
+ * |  Tab   |   '  |   ,  |   .  |   P  |   Y  |      |           |BckSpc|   F  |   G  |   C  |   R  |   L  |   /    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Esc/Ctrl|   A  |   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  |   S  |   -    |
  * |--------+------+------+------+------+------|  L1  |           |  L1  |------+------+------+------+------+--------|
@@ -24,12 +27,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |  =   |      | Ctrl | LAlt | LCmd |                                       | RCmd | RAlt |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,---------------.
- *                                        | Copy | Paste|       | Vol- | Vol+ |
+ *                                        ,-------------.       ,-------------.
+ *                                        | Copy | Paste|       | Left |Right |
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      | Home |       | PgUp |      |      |
+ *                                 |      |      | PgUp |       |  Up  |      |      |
  *                                 | Space| Enter|------|       |------|Enter |Space |
- *                                 |  /L1 |      | End  |       | PgDn |      | /L1  |
+ *                                 |  /L1 |      | PgDn |       | Down |      | /L1  |
  *                                 `--------------------'       `--------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -42,17 +45,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSPO,        KC_SCLN, KC_Q,    KC_J,   KC_K,           KC_X,      LT(SYMB,KC_NO),
         KC_EQL,         KC_NO,   KC_LCTL, KC_LALT,KC_LGUI,
                                                                   LGUI(KC_C),LGUI(KC_V),
-                                                                             KC_HOME,
-                                                  LT(SYMB,KC_SPC),KC_ENT,    KC_END,
+                                                                             KC_PGUP,
+                                                  LT(SYMB,KC_SPC),KC_ENT,    KC_PGDN,
         // right hand
         KC_NO,         KC_6,  KC_7,   KC_8,   KC_9,  KC_0,           KC_BSLS,
-        KC_NO,         KC_F,  KC_G,   KC_C,   KC_R,  KC_L,           KC_SLSH,
+        KC_BSPC,       KC_F,  KC_G,   KC_C,   KC_R,  KC_L,           KC_SLSH,
                        KC_D,  KC_H,   KC_T,   KC_N,  KC_S,           KC_MINS,
         LT(SYMB,KC_NO),KC_B,  KC_M,   KC_W,   KC_V,  LT(MDIA, KC_Z), KC_RSPC,
                               KC_RGUI,KC_RALT,KC_NO, KC_NO,          KC_NO,
-        KC_VOLD,       KC_VOLU,
-        KC_PGUP,
-        KC_PGDN,       KC_ENT,LT(SYMB,KC_SPC)
+        KC_LEFT,       KC_RGHT,
+        KC_UP,
+        KC_DOWN,       KC_ENT,LT(SYMB,KC_SPC)
     ),
 
 /* Keymap 1: Symbol Layer
@@ -60,9 +63,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | Teensy |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |   7  |   8  |   9  |   *  |   /  |        |
+ * |  Mute  | VolDn| VolUp|   {  |   }  |      |      |           |      |   7  |   8  |   9  |   *  |   /  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   {  |   }  |   [  |   ]  |      |------|           |------|   4  |   5  |   6  |   +  |   =  |        |
+ * |        |TabNxt|TabPrv|   [  |   ]  |      |------|           |------|   4  |   5  |   6  |   +  |   =  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |   1  |   2  |   3  |   -  |  Up  |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -80,8 +83,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [SYMB] = KEYMAP(
        // left hand
        RESET,  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
-       KC_TRNS,KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_TRNS,
-       KC_TRNS,KC_LCBR,KC_RCBR,KC_LBRC,KC_RBRC,KC_NO,
+       KC_MUTE,KC_VOLD,KC_VOLU,  KC_LCBR,KC_RCBR,KC_NO,  KC_TRNS,
+       KC_TRNS,KC_TABP,KC_TABN,KC_LBRC,KC_RBRC,KC_NO,
        KC_TRNS,KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_TRNS,
        KC_NO,  KC_NO,  KC_TRNS,KC_TRNS,KC_TRNS,
                                        KC_TRNS,KC_TRNS,
