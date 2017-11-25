@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|  L1  |           |  L1  |------+------+------+------+------+--------|
  * |(/LShift|   :  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  | Z/L2 |)/RShift|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |  =   |      | Ctrl | LAlt | LCmd |                                       | RCmd | RAlt |      |      |      |
+ *   |  =   |      | Ctrl | LAlt | LCmd |                                       | RCmd | RAlt | RCtrl|      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | Copy | Paste|       | Left |Right |
@@ -48,11 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                              KC_PGUP,
                                                   LT(SYMB,KC_SPC),KC_ENT,    KC_PGDN,
         // right hand
-        KC_NO,         KC_6,  KC_7,   KC_8,   KC_9,  KC_0,           KC_BSLS,
-        KC_BSPC,       KC_F,  KC_G,   KC_C,   KC_R,  KC_L,           KC_SLSH,
-                       KC_D,  KC_H,   KC_T,   KC_N,  KC_S,           KC_MINS,
-        LT(SYMB,KC_NO),KC_B,  KC_M,   KC_W,   KC_V,  LT(MDIA, KC_Z), KC_RSPC,
-                              KC_RGUI,KC_RALT,KC_NO, KC_NO,          KC_NO,
+        KC_NO,         KC_6,  KC_7,   KC_8,   KC_9,   KC_0,           KC_BSLS,
+        KC_BSPC,       KC_F,  KC_G,   KC_C,   KC_R,   KC_L,           KC_SLSH,
+                       KC_D,  KC_H,   KC_T,   KC_N,   KC_S,           KC_MINS,
+        LT(SYMB,KC_NO),KC_B,  KC_M,   KC_W,   KC_V,   LT(MDIA, KC_Z), KC_RSPC,
+                              KC_RGUI,KC_RALT,KC_RCTL,KC_NO,          KC_NO,
         KC_LEFT,       KC_RGHT,
         KC_UP,
         KC_DOWN,       KC_ENT,LT(SYMB,KC_SPC)
